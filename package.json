@@ -4,7 +4,8 @@
   "description": "reactjs and webpack for building kanban project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/zhangmingkai4315/kanban/issues"
   },
-  "homepage": "https://github.com/zhangmingkai4315/kanban"
+  "homepage": "https://github.com/zhangmingkai4315/kanban",
+  "devDependencies": {
+    "serve": "^1.4.0",
+    "webpack": "^1.12.13"
+  }
 }
