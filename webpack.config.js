@@ -12,6 +12,7 @@ const PATHS={
 
 
 
+process.env.BABEL_ENV = TARGET;
 
 const common={
 	entry:{
@@ -21,6 +22,9 @@ const common={
 		path:PATHS.build,
 		filename:'bundle.js'
 	},
+	resolve: {
+	 extensions: ['', '.js', '.jsx']
+  },
 	module: {
 	 loaders: [
 		 {
@@ -29,7 +33,14 @@ const common={
 			 loaders: ['style', 'css'],
 			 // Include accepts either a path or an array of paths.
 			 include: PATHS.app
-		 }
+		 },
+
+		 {
+		 test: /\.jsx?$/,
+		 loaders:['babel?cacheDirectory'],
+     cacheDirectory: true,
+		 include: PATHS.app
+	 	}
 	 ]
  }
 };
@@ -41,7 +52,6 @@ if(TARGET ==='start'||!TARGET){
 			historyApiFallback:true,
 			inline:true,
 			progress:true,
-			stats:'errors-only',
 			host: process.env.HOST,
 			port: process.env.PORT
 		},
