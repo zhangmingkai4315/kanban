@@ -1,0 +1,25 @@
+{
+  "name": "kanban",
+  "version": "0.0.1",
+  "description": "reactjs and webpack for building kanban project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhangmingkai4315/kanban"
+  },
+  "keywords": [
+    "reactjs",
+    "kanban",
+    "webpack",
+    "nodejs"
+  ],
+  "author": "Mike",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhangmingkai4315/kanban/issues"
+  },
+  "homepage": "https://github.com/zhangmingkai4315/kanban"
+}
