@@ -3,4 +3,3 @@ module.exports=function(){
 	element.innerHTML='hello world';
 	return element;
 };
-
