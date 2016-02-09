@@ -2,54 +2,38 @@ import React from "react"
 
 import uuid from "node-uuid";
 import Notes from './Notes.jsx'
-
+import NoteActions from "../actions/NoteActions";
+import NoteStore from "../stores/NoteStore"
 
 {/* 使用webpack组件直接自动安装 依赖 */}
 
 export default class App extends React.Component{
   constructor(props){
     super(props);
-    this.state={
-      notes:[
-        {
-         id: uuid.v4(),
-         task: 'Learn Webpack'
-       },
-       {
-         id: uuid.v4(),
-         task: 'Learn React'
-       },
-       {
-         id: uuid.v4(),
-         task: 'Do laundry'
-       }
-      ]
-    };
+    this.state=NoteStore.getState();
   };
-  editNote=(id,task)=>{
-    const notes=this.state.notes.map(note=>{
-      if(note.id===id &&task){
-        note.task=task;
-      }
-      return note;
-    });
-    this.setState({
-      notes:notes
-    });
+  componentDidMount(){
+    NoteStore.listen(this.storeChange);
   };
 
+  componentWillMount(){
+    NoteStore.unlisten(this.storeChange);
+  };
+  storeChange=(state)=>{
+    this.setState(state);
+  };
+  editNote=(id,task)=>{
+    NoteActions.update({id,task});
+  };
+
+
   addNote=()=>{
-    this.setState({
-      notes:this.state.notes.concat([{
-        id:uuid.v4(),
+    NoteActions.create({
         task:'new task'
-      }])
-    });
+      });
   };
   deleteNote=(id)=>{
-    this.setState({
-      notes:this.state.notes.filter(note=>note.id!==id)
-    });
+    NoteActions.delete(id);
   };
   render() {
     const notes=this.state.notes;
