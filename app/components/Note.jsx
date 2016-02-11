@@ -52,20 +52,10 @@ export default class Note extends React.Component {
     }
   };
   finishEdit = (e) => {
-    // `Note` will trigger an optional `onEdit` callback once it
-    // has a new value. We will use this to communicate the change to
-    // `App`.
-    //
-    // A smarter way to deal with the default value would be to set
-    // it through `defaultProps`.
-    //
-    // See *Typing with React* chapter for more information.
     const value = e.target.value;
 
     if(this.props.onEdit && value.trim()) {
       this.props.onEdit(value);
-
-      // Exit edit mode.
       this.setState({
         editing: false
       });

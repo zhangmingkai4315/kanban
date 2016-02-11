@@ -26,14 +26,14 @@ export default class App extends React.Component{
     LaneStore.listen(this.laneChange);
   };
 
-  componentWillMount(){
+  componentWillUnMount(){
     LaneStore.unlisten(this.laneChange);
   };
   laneChange=(state)=>{
     this.setState(state);
   };
   render(){
-    const lanes=this.state.lanes;
+    const lanes=this.state.lanes||[];
 
     return (
       <div>

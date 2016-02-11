@@ -24,16 +24,16 @@ body{
   box-shadow: 0 0 0.3em 0.3em rgba(0,0,0,0.7);
   transition:0.2s;
 }
-.note .task{
+.note .value{
   display: block;
 }
-.note .delete-note{
+.note .delete{
   float:right;
   padding: 0;
   background-color: #fdfdfd;
   cursor: pointer;
   visibility: hidden;;
 }
-.note:hover .delete-note{
+.note:hover .delete{
   visibility: visible;
 }
