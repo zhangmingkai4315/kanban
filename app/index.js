@@ -7,5 +7,5 @@ import storage from "./lib/storage";
 import persist from "./lib/persist"
 
 persist(alt,storage,'kanban');
-
+console.log('Version0.0.1');
 ReactDOM.render(<App />,document.getElementById('app'));
