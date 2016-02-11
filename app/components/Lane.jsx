@@ -74,23 +74,19 @@ export default class Lane extends React.Component{
   editName=(name)=>{
     let laneId=this.props.lane.id;
     LaneActions.update({id:laneId,name,editing:false});
-    console.log(`Editing lane name using ${name}`);
   };
 
   deleteLane=()=>{
     let laneId=this.props.lane.id;
     LaneActions.delete(laneId);
-    console.log(`Delete lane : ${laneId}`);
   };
 
   activeLaneEdit=()=>{
     let laneId=this.props.lane.id;
     LaneActions.update({id:laneId,editing:true});
-    console.log(`Active lane ${laneId} edit`);
   };
   activeNoteEdit=(id)=>{
     NoteActions.update({id,editing:true});
-    console.log(`Active Note ${id} edit`);
   };
     valueClick=()=>{
       console.log(arguments);
