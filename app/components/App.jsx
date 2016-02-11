@@ -11,12 +11,13 @@ import Lanes from './Lanes.jsx';
 import LaneActions from '../actions/LaneActions';
 import LaneStore from '../stores/LaneStore';
 
-
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
 
 
 
 {/* 使用webpack组件直接自动安装 依赖 */}
-
+@DragDropContext(HTML5Backend)
 export default class App extends React.Component{
   constructor(props){
     super(props);
@@ -45,44 +46,4 @@ export default class App extends React.Component{
   addLane=()=>{
     LaneActions.create({name:'New lane'});
   };
-
-
-
-  // constructor(props){
-  //   super(props);
-  //   this.state=NoteStore.getState();
-  // };
-  // componentDidMount(){
-  //   NoteStore.listen(this.storeChange);
-  // };
-  //
-  // componentWillMount(){
-  //   NoteStore.unlisten(this.storeChange);
-  // };
-  // storeChange=(state)=>{
-  //   this.setState(state);
-  // };
-  // editNote=(id,task)=>{
-  //   NoteActions.update({id,task});
-  // };
-  //
-  //
-  // addNote=()=>{
-  //   NoteActions.create({
-  //       task:'new task'
-  //     });
-  // };
-  // deleteNote=(id)=>{
-  //   NoteActions.delete(id);
-  // };
-  // render() {
-  //   const notes=this.state.notes;
-  //   return (
-  //     <div>
-  //        <button className="add-note" onClick={this.addNote}>Add note</button>
-  //        <Notes notes={notes}  onDelete={this.deleteNote} onEdit={this.editNote}/>
-  //     </div>
-  //
-  //   );
-  // };
 }
